@@ -1,0 +1,62 @@
+//sliding window and go back n
+#include<stdio.h>
+#include<conio.h>
+//create gobackn file
+void gobackn(){
+     int n,k,i;
+     int arr[10];
+     printf("Enter the number of frames : ");
+     scanf("%d",&n);
+     for(i=1;i<=n;i++){
+       printf("Enter the data for frame%d :",i);
+       scanf("%d",&arr[i]);
+       }
+    // k=rand()%n;
+    k=3;
+     for(i=1;i<k;i++){
+       printf("the frame%d received is %d \n",i,arr[i]);
+       }
+     printf("\nThe frame%d is not received",k);
+     printf(" and also other frmes is discarded by receiver\n");
+     printf("Retransmiting all from frame%d\n\n",k);
+     for(i=k;i<=n;i++){
+      printf("the frame%d received is %d \n",i,arr[i]);
+      }
+      printf("\nAll frames received\n");
+      }
+
+void selective(){
+     int n,k,i;
+     int arr[10];
+     printf("Enter the number of frames : ");
+     scanf("%d",&n);
+     for(i=1;i<=n;i++){
+       printf("Enter the data for frame%d :",i);
+       scanf("%d",&arr[i]);
+       }
+    // k=rand()%n;
+    k=3;
+     for(i=1;i<=n;i++){
+       if(i==k){
+                printf("\nThe frame%d is not received\n",k);
+                continue;
+                }
+       printf("the frame%d received is %d \n",i,arr[i]);
+       }
+     printf("\nRequesting for frame%d\n",k);
+     printf("the data frame%d = %d is Received\n ",k,arr[k]);
+      printf("\nAll frames received\n");
+      }
+
+int main(){
+    int choose;
+    printf("1. GO BACK N \n2. SELECTIVE\n3. EXIT\n");
+    scanf("%d",&choose);
+    if(choose==1){
+            gobackn();
+       }else if(choose==2){
+            selective();
+       }
+    scanf("%d",&choose);
+    return 0;
+}
